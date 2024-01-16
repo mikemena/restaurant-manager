@@ -78,5 +78,14 @@ invoice_panel.pack()
 buttons_panel = Frame(right_panel, bd=0, relief=FLAT, bg="azure4")
 buttons_panel.pack()
 
+food_list = ["Chicken", "Lamb", "Salmon", "Kebabs", "Pizza", "Burger"]
+drink_list = ["Lemonade", "Soda", "Juice", "White Wine", "Red Wine", "Beer"]
+dessert_list = ["Ice Cream", "Fruit", "Brownies", "Pudding", "Cheesecake", "Cookie"]
+
+counter = 0
+for food in food_list:
+    food = Checkbutton(
+        food_panel, text=food.title(), font=("Doris", 19, "bold"), onvalue=1, offvalue=0
+    )
 # prevent window from closing
 application.mainloop()
