@@ -82,10 +82,53 @@ food_list = ["Chicken", "Lamb", "Salmon", "Kebabs", "Pizza", "Burger"]
 drink_list = ["Lemonade", "Soda", "Juice", "White Wine", "Red Wine", "Beer"]
 dessert_list = ["Ice Cream", "Fruit", "Brownies", "Pudding", "Cheesecake", "Cookie"]
 
-counter = 0
-for food in food_list:
-    food = Checkbutton(
-        food_panel, text=food.title(), font=("Doris", 19, "bold"), onvalue=1, offvalue=0
+# create food items
+food_variables = []
+for counter, food in enumerate(food_list):
+    var = IntVar()
+    food_variables.append(var)
+    check_button = Checkbutton(
+        food_panel,
+        text=food.title(),
+        font=("Doris", 19, "bold"),
+        onvalue=1,
+        offvalue=0,
+        variable=var,
     )
+    check_button.grid(row=counter, column=0, sticky=W)
+    counter += 1
+
+# create drink items
+drink_variables = []
+for counter, drink in enumerate(drink_list):
+    var = IntVar()
+    drink_variables.append(var)
+    check_button = Checkbutton(
+        drink_panel,
+        text=drink.title(),
+        font=("Doris", 19, "bold"),
+        onvalue=1,
+        offvalue=0,
+        variable=var,
+    )
+    check_button.grid(row=counter, column=0, sticky=W)
+    counter += 1
+
+# create dessert items
+dessert_variables = []
+for counter, dessert in enumerate(dessert_list):
+    var = IntVar()
+    dessert_variables.append(var)
+    check_button = Checkbutton(
+        dessert_panel,
+        text=dessert.title(),
+        font=("Doris", 19, "bold"),
+        onvalue=1,
+        offvalue=0,
+        variable=var,
+    )
+    check_button.grid(row=counter, column=0, sticky=W)
+    counter += 1
+
 # prevent window from closing
 application.mainloop()
