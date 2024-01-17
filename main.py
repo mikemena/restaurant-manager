@@ -84,6 +84,8 @@ dessert_list = ["Ice Cream", "Fruit", "Brownies", "Pudding", "Cheesecake", "Cook
 
 # create food items
 food_variables = []
+food_box = []
+food_text = []
 for counter, food in enumerate(food_list):
     var = IntVar()
     food_variables.append(var)
@@ -96,7 +98,20 @@ for counter, food in enumerate(food_list):
         variable=var,
     )
     check_button.grid(row=counter, column=0, sticky=W)
-    counter += 1
+
+    text_var = StringVar()
+    food_text.append(text_var)
+    food_entry = Entry(
+        food_panel,
+        font=("Dosis", 18, "bold"),
+        bd=1,
+        width=6,
+        state=DISABLED,
+        textvariable=text_var,
+    )
+
+    food_box.append(food_entry)
+    food_entry.grid(row=counter, column=1)
 
 # create drink items
 drink_variables = []
