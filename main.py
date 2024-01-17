@@ -87,19 +87,23 @@ food_variables = []
 food_box = []
 food_text = []
 for counter, food in enumerate(food_list):
-    var = IntVar()
-    food_variables.append(var)
+    food_var = IntVar()
+    food_variables.append(food_var)
+
+    # checkbox
     check_button = Checkbutton(
         food_panel,
         text=food.title(),
         font=("Doris", 19, "bold"),
         onvalue=1,
         offvalue=0,
-        variable=var,
+        variable=food_var,
     )
     check_button.grid(row=counter, column=0, sticky=W)
 
+    # create input boxes
     text_var = StringVar()
+    text_var.set("0")
     food_text.append(text_var)
     food_entry = Entry(
         food_panel,
@@ -118,18 +122,19 @@ drink_variables = []
 drink_box = []
 drink_text = []
 for counter, drink in enumerate(drink_list):
-    var = IntVar()
-    drink_variables.append(var)
+    drink_var = IntVar()
+    drink_variables.append(drink_var)
     check_button = Checkbutton(
         drink_panel,
         text=drink.title(),
         font=("Doris", 19, "bold"),
         onvalue=1,
         offvalue=0,
-        variable=var,
+        variable=drink_var,
     )
     check_button.grid(row=counter, column=0, sticky=W)
 
+    # create input boxes
     text_var = StringVar()
     drink_text.append(text_var)
     drink_entry = Entry(
@@ -149,15 +154,15 @@ dessert_variables = []
 dessert_box = []
 dessert_text = []
 for counter, dessert in enumerate(dessert_list):
-    var = IntVar()
-    dessert_variables.append(var)
+    dessert_var = IntVar()
+    dessert_variables.append(dessert_var)
     check_button = Checkbutton(
         dessert_panel,
         text=dessert.title(),
         font=("Doris", 19, "bold"),
         onvalue=1,
         offvalue=0,
-        variable=var,
+        variable=dessert_var,
     )
     check_button.grid(row=counter, column=0, sticky=W)
 
