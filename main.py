@@ -124,6 +124,8 @@ drink_text = []
 for counter, drink in enumerate(drink_list):
     drink_var = IntVar()
     drink_variables.append(drink_var)
+
+    # checkbox
     check_button = Checkbutton(
         drink_panel,
         text=drink.title(),
@@ -136,6 +138,7 @@ for counter, drink in enumerate(drink_list):
 
     # create input boxes
     text_var = StringVar()
+    text_var.set("0")
     drink_text.append(text_var)
     drink_entry = Entry(
         drink_panel,
@@ -156,6 +159,8 @@ dessert_text = []
 for counter, dessert in enumerate(dessert_list):
     dessert_var = IntVar()
     dessert_variables.append(dessert_var)
+
+    # checkbox
     check_button = Checkbutton(
         dessert_panel,
         text=dessert.title(),
@@ -166,7 +171,9 @@ for counter, dessert in enumerate(dessert_list):
     )
     check_button.grid(row=counter, column=0, sticky=W)
 
+    # create input boxes
     text_var = StringVar()
+    text_var.set("0")
     dessert_text.append(text_var)
     dessert_entry = Entry(
         dessert_panel,
