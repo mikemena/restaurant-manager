@@ -115,6 +115,8 @@ for counter, food in enumerate(food_list):
 
 # create drink items
 drink_variables = []
+drink_box = []
+drink_text = []
 for counter, drink in enumerate(drink_list):
     var = IntVar()
     drink_variables.append(var)
@@ -127,10 +129,25 @@ for counter, drink in enumerate(drink_list):
         variable=var,
     )
     check_button.grid(row=counter, column=0, sticky=W)
-    counter += 1
+
+    text_var = StringVar()
+    drink_text.append(text_var)
+    drink_entry = Entry(
+        drink_panel,
+        font=("Dosis", 18, "bold"),
+        bd=1,
+        width=6,
+        state=DISABLED,
+        textvariable=text_var,
+    )
+
+    drink_box.append(drink_entry)
+    drink_entry.grid(row=counter, column=1)
 
 # create dessert items
 dessert_variables = []
+dessert_box = []
+dessert_text = []
 for counter, dessert in enumerate(dessert_list):
     var = IntVar()
     dessert_variables.append(var)
@@ -143,7 +160,20 @@ for counter, dessert in enumerate(dessert_list):
         variable=var,
     )
     check_button.grid(row=counter, column=0, sticky=W)
-    counter += 1
+
+    text_var = StringVar()
+    dessert_text.append(text_var)
+    dessert_entry = Entry(
+        dessert_panel,
+        font=("Dosis", 18, "bold"),
+        bd=1,
+        width=6,
+        state=DISABLED,
+        textvariable=text_var,
+    )
+
+    dessert_box.append(dessert_entry)
+    dessert_entry.grid(row=counter, column=1)
 
 # prevent window from closing
 application.mainloop()
