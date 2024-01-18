@@ -189,6 +189,12 @@ for counter, dessert in enumerate(dessert_list):
 
 
 food_cost_var = StringVar()
+drink_cost_var = StringVar()
+dessert_cost_var = StringVar()
+subtotal_var = StringVar()
+taxes_var = StringVar()
+total_var = StringVar()
+
 
 # cost labels and input fields
 food_cost_label = Label(
@@ -205,5 +211,42 @@ food_cost_text = Entry(
     textvariable=food_cost_var,
 )
 food_cost_text.grid(row=0, column=1)
+
+# drink labels and input fields
+food_drink_label = Label(
+    drink_panel, text="Drink Cost", font=("Doris", 12, "bold"), bg="azure4", fg="white"
+)
+
+food_drink_label.grid(row=0, column=0)
+drink_cost_text = Entry(
+    drink_panel,
+    font=("Doris", 12, "bold"),
+    bd=0,
+    width=10,
+    state="readonly",
+    textvariable=drink_cost_var,
+)
+drink_cost_text.grid(row=0, column=1)
+
+# dessert labels and input fields
+food_dessert_label = Label(
+    dessert_panel,
+    text="Dessert Cost",
+    font=("Doris", 12, "bold"),
+    bg="azure4",
+    fg="white",
+)
+
+food_dessert_label.grid(row=0, column=0)
+dessert_cost_text = Entry(
+    dessert_panel,
+    font=("Doris", 12, "bold"),
+    bd=0,
+    width=10,
+    state="readonly",
+    textvariable=dessert_cost_var,
+)
+dessert_cost_text.grid(row=0, column=1)
+
 # prevent window from closing
 application.mainloop()
