@@ -187,5 +187,12 @@ for counter, dessert in enumerate(dessert_list):
     dessert_box.append(dessert_entry)
     dessert_entry.grid(row=counter, column=1)
 
+# cost labels and input fields
+food_cost_label = Label(
+    cost_panel, text="Food Cost", font=("Doris", 12, "bold"), bg="azure4", fg="white"
+)
+
+food_cost_label.grid(row=0, column=0)
+
 # prevent window from closing
 application.mainloop()
