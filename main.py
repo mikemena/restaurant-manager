@@ -24,7 +24,7 @@ top_panel.pack(side=TOP)
 title_tag = Label(
     top_panel,
     text="Invoicing System",
-    fg="azure4",
+    fg="aquamarine4",
     font=("Dosis", 58),
     bg="antiquewhite3",
     width=27,
@@ -36,18 +36,28 @@ left_panel = Frame(application, bd=1, relief=FLAT)
 left_panel.pack(side=LEFT)
 
 # cost panel
-cost_panel = Frame(application, bd=1, relief=FLAT)
+cost_panel = Frame(left_panel, bd=1, relief=FLAT)
 cost_panel.pack(side=BOTTOM)
 
 # food panel
 food_panel = LabelFrame(
-    left_panel, text="Food", font=("Dosis", 19, "bold"), bd=0, relief=FLAT, fg="azure4"
+    left_panel,
+    text="Food",
+    font=("Dosis", 18, "bold"),
+    bd=0,
+    relief=FLAT,
+    fg="aquamarine4",
 )
 food_panel.pack(side=LEFT)
 
 # drink panel
 drink_panel = LabelFrame(
-    left_panel, text="Drink", font=("Dosis", 19, "bold"), bd=0, relief=FLAT, fg="azure4"
+    left_panel,
+    text="Drink",
+    font=("Dosis", 18, "bold"),
+    bd=0,
+    relief=FLAT,
+    fg="aquamarine4",
 )
 drink_panel.pack(side=LEFT)
 
@@ -55,10 +65,10 @@ drink_panel.pack(side=LEFT)
 dessert_panel = LabelFrame(
     left_panel,
     text="Dessert",
-    font=("Dosis", 19, "bold"),
+    font=("Dosis", 18, "bold"),
     bd=0,
     relief=FLAT,
-    fg="azure4",
+    fg="aquamarine4",
 )
 dessert_panel.pack(side=LEFT)
 
@@ -94,7 +104,7 @@ for counter, food in enumerate(food_list):
     check_button = Checkbutton(
         food_panel,
         text=food.title(),
-        font=("Doris", 19, "bold"),
+        font=("Doris", 18, "bold"),
         onvalue=1,
         offvalue=0,
         variable=food_var,
@@ -108,7 +118,6 @@ for counter, food in enumerate(food_list):
     food_entry = Entry(
         food_panel,
         font=("Dosis", 18, "bold"),
-        bd=1,
         width=6,
         state=DISABLED,
         textvariable=text_var,
@@ -129,7 +138,7 @@ for counter, drink in enumerate(drink_list):
     check_button = Checkbutton(
         drink_panel,
         text=drink.title(),
-        font=("Doris", 19, "bold"),
+        font=("Doris", 18, "bold"),
         onvalue=1,
         offvalue=0,
         variable=drink_var,
@@ -143,7 +152,6 @@ for counter, drink in enumerate(drink_list):
     drink_entry = Entry(
         drink_panel,
         font=("Dosis", 18, "bold"),
-        bd=1,
         width=6,
         state=DISABLED,
         textvariable=text_var,
@@ -164,7 +172,7 @@ for counter, dessert in enumerate(dessert_list):
     check_button = Checkbutton(
         dessert_panel,
         text=dessert.title(),
-        font=("Doris", 19, "bold"),
+        font=("Doris", 18, "bold"),
         onvalue=1,
         offvalue=0,
         variable=dessert_var,
@@ -178,7 +186,6 @@ for counter, dessert in enumerate(dessert_list):
     dessert_entry = Entry(
         dessert_panel,
         font=("Dosis", 18, "bold"),
-        bd=1,
         width=6,
         state=DISABLED,
         textvariable=text_var,
@@ -188,6 +195,7 @@ for counter, dessert in enumerate(dessert_list):
     dessert_entry.grid(row=counter, column=1)
 
 
+# variables
 food_cost_var = StringVar()
 drink_cost_var = StringVar()
 dessert_cost_var = StringVar()
@@ -198,29 +206,29 @@ total_var = StringVar()
 
 # cost labels and input fields
 food_cost_label = Label(
-    cost_panel, text="Food Cost", font=("Doris", 12, "bold"), bg="azure4", fg="white"
+    cost_panel, text="Food Cost", font=("Doris", 18, "bold"), fg="aquamarine4"
 )
 
 food_cost_label.grid(row=0, column=0)
 food_cost_text = Entry(
     cost_panel,
-    font=("Doris", 12, "bold"),
+    font=("Doris", 18, "bold"),
     bd=0,
     width=10,
     state="readonly",
     textvariable=food_cost_var,
 )
-food_cost_text.grid(row=0, column=1)
+food_cost_text.grid(row=0, column=1, padx=40)
 
 # drink labels and input fields
 drink_cost_label = Label(
-    cost_panel, text="Drink Cost", font=("Doris", 12, "bold"), bg="azure4", fg="white"
+    cost_panel, text="Drink Cost", font=("Doris", 18, "bold"), fg="aquamarine4"
 )
 
 drink_cost_label.grid(row=1, column=0)
 drink_cost_text = Entry(
     cost_panel,
-    font=("Doris", 12, "bold"),
+    font=("Doris", 18, "bold"),
     bd=0,
     width=10,
     state="readonly",
@@ -232,15 +240,14 @@ drink_cost_text.grid(row=1, column=1)
 dessert_cost_label = Label(
     cost_panel,
     text="Dessert Cost",
-    font=("Doris", 12, "bold"),
-    bg="azure4",
-    fg="white",
+    font=("Doris", 18, "bold"),
+    fg="aquamarine4",
 )
 
 dessert_cost_label.grid(row=2, column=0)
 dessert_cost_text = Entry(
     cost_panel,
-    font=("Doris", 12, "bold"),
+    font=("Doris", 18, "bold"),
     bd=0,
     width=10,
     state="readonly",
@@ -252,15 +259,14 @@ dessert_cost_text.grid(row=2, column=1)
 subtotal_label = Label(
     cost_panel,
     text="Subtotal",
-    font=("Doris", 12, "bold"),
-    bg="azure4",
-    fg="white",
+    font=("Doris", 18, "bold"),
+    fg="aquamarine4",
 )
 
 subtotal_label.grid(row=0, column=2)
 subtotal_text = Entry(
     cost_panel,
-    font=("Doris", 12, "bold"),
+    font=("Doris", 18, "bold"),
     bd=0,
     width=10,
     state="readonly",
@@ -272,9 +278,8 @@ subtotal_text.grid(row=0, column=3)
 taxes_label = Label(
     cost_panel,
     text="Taxes",
-    font=("Doris", 12, "bold"),
-    bg="azure4",
-    fg="white",
+    font=("Doris", 18, "bold"),
+    fg="aquamarine4",
 )
 
 taxes_label.grid(row=1, column=2)
@@ -292,9 +297,8 @@ taxes_text.grid(row=1, column=3)
 total_label = Label(
     cost_panel,
     text="Total",
-    font=("Doris", 12, "bold"),
-    bg="azure4",
-    fg="white",
+    font=("Doris", 18, "bold"),
+    fg="aquamarine4",
 )
 
 total_label.grid(row=2, column=2)
