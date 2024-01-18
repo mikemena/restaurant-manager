@@ -214,12 +214,12 @@ food_cost_text.grid(row=0, column=1)
 
 # drink labels and input fields
 drink_cost_label = Label(
-    drink_panel, text="Drink Cost", font=("Doris", 12, "bold"), bg="azure4", fg="white"
+    cost_panel, text="Drink Cost", font=("Doris", 12, "bold"), bg="azure4", fg="white"
 )
 
 drink_cost_label.grid(row=1, column=0)
 drink_cost_text = Entry(
-    drink_panel,
+    cost_panel,
     font=("Doris", 12, "bold"),
     bd=0,
     width=10,
@@ -230,7 +230,7 @@ drink_cost_text.grid(row=1, column=1)
 
 # dessert labels and input fields
 dessert_cost_label = Label(
-    dessert_panel,
+    cost_panel,
     text="Dessert Cost",
     font=("Doris", 12, "bold"),
     bg="azure4",
@@ -239,7 +239,7 @@ dessert_cost_label = Label(
 
 dessert_cost_label.grid(row=2, column=0)
 dessert_cost_text = Entry(
-    dessert_panel,
+    cost_panel,
     font=("Doris", 12, "bold"),
     bd=0,
     width=10,
@@ -247,6 +247,66 @@ dessert_cost_text = Entry(
     textvariable=dessert_cost_var,
 )
 dessert_cost_text.grid(row=2, column=1)
+
+# subtotal labels and input fields
+subtotal_label = Label(
+    cost_panel,
+    text="Subtotal",
+    font=("Doris", 12, "bold"),
+    bg="azure4",
+    fg="white",
+)
+
+subtotal_label.grid(row=0, column=2)
+subtotal_text = Entry(
+    cost_panel,
+    font=("Doris", 12, "bold"),
+    bd=0,
+    width=10,
+    state="readonly",
+    textvariable=subtotal_var,
+)
+subtotal_text.grid(row=0, column=3)
+
+# taxes labels and input fields
+taxes_label = Label(
+    cost_panel,
+    text="Taxes",
+    font=("Doris", 12, "bold"),
+    bg="azure4",
+    fg="white",
+)
+
+taxes_label.grid(row=1, column=2)
+taxes_text = Entry(
+    cost_panel,
+    font=("Doris", 12, "bold"),
+    bd=0,
+    width=10,
+    state="readonly",
+    textvariable=taxes_var,
+)
+taxes_text.grid(row=1, column=3)
+
+# total labels and input fields
+total_label = Label(
+    cost_panel,
+    text="Total",
+    font=("Doris", 12, "bold"),
+    bg="azure4",
+    fg="white",
+)
+
+total_label.grid(row=2, column=2)
+total_text = Entry(
+    cost_panel,
+    font=("Doris", 12, "bold"),
+    bd=0,
+    width=10,
+    state="readonly",
+    textvariable=total_var,
+)
+total_text.grid(row=2, column=3)
 
 # prevent window from closing
 application.mainloop()
