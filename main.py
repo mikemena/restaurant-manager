@@ -1,6 +1,6 @@
 from tkinter import *
 from menu_items import create_menu_items
-from panel_labels import create_panel_label
+from panel_labels import create_panel
 
 # Initialize Tkinter
 application = Tk()
@@ -44,38 +44,11 @@ cost_panel.pack(side=BOTTOM)
 # panel_types = ["drink", "food", "dessert"]
 # create_panel_label(left_panel, panel_types,"Dosis", 18)
 
-# food panel
-food_panel = LabelFrame(
-    left_panel,
-    text="Food",
-    font=("Dosis", 18, "bold"),
-    bd=0,
-    relief=FLAT,
-    fg="aquamarine4",
-)
-food_panel.pack(side=LEFT)
+# create panels
+food_panel = create_panel(left_panel, "Food", "Dosis", 18)
+drink_panel = create_panel(left_panel, "Drink", "Dosis", 18)
+dessert_panel = create_panel(left_panel, "Dessert", "Dosis", 18)
 
-# drink panel
-drink_panel = LabelFrame(
-    left_panel,
-    text="Drink",
-    font=("Dosis", 18, "bold"),
-    bd=0,
-    relief=FLAT,
-    fg="aquamarine4",
-)
-drink_panel.pack(side=LEFT)
-
-# dessert panel
-dessert_panel = LabelFrame(
-    left_panel,
-    text="Dessert",
-    font=("Dosis", 18, "bold"),
-    bd=0,
-    relief=FLAT,
-    fg="aquamarine4",
-)
-dessert_panel.pack(side=LEFT)
 
 # right panel
 right_panel = Frame(application, bd=1, relief=FLAT)
