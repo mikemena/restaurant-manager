@@ -1,4 +1,4 @@
-from tkinter import *
+from tkinter import IntVar, Checkbutton, StringVar, Entry, W, DISABLED
 
 
 def create_menu_items(panel, item_list, font_style, font_size):
