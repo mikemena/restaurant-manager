@@ -215,5 +215,11 @@ for button in buttons:
 
     column += 1
 
+# invoice section
+invoice_text = Text(
+    invoice_panel, font=("Dosis", 12, "bold"), bd=1, width=42, height=10
+)
+invoice_text.grid(row=0, column=0)
+
 # prevent window from closing
 application.mainloop()
