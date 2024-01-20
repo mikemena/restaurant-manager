@@ -44,7 +44,7 @@ cost_panel.pack(side=BOTTOM)
 # panel_types = ["drink", "food", "dessert"]
 # create_panel_label(left_panel, panel_types,"Dosis", 18)
 
-# create panels
+# create menu item panels
 food_panel = create_panel(left_panel, "Food", "Dosis", 18)
 drink_panel = create_panel(left_panel, "Drink", "Dosis", 18)
 dessert_panel = create_panel(left_panel, "Dessert", "Dosis", 18)
@@ -198,6 +198,22 @@ total_text = Entry(
     textvariable=total_var,
 )
 total_text.grid(row=2, column=3)
+
+# buttons
+buttons = ["total", "invoice", "save", "reset"]
+column = 0
+for button in buttons:
+    button = Button(
+        buttons_panel,
+        text=button.title(),
+        font=("Doris", 14, "bold"),
+        width=6,
+        bg="antiquewhite4",
+    )
+
+    button.grid(row=0, column=column)
+
+    column += 1
 
 # prevent window from closing
 application.mainloop()
