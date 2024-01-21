@@ -18,11 +18,28 @@ from panel_labels import create_panel
 
 operator = ""
 
+# calculator buttons
+
 
 def click_button(character):
     global operator
     operator = operator + character
+    calculator_display.delete(0, END)
     calculator_display.insert(END, operator)
+
+
+def delete_all():
+    global operator
+    operator = ""
+    calculator_display.delete(0, END)
+
+
+def get_result():
+    global operator
+    result = str(eval(operator))
+    calculator_display.delete(0, END)
+    calculator_display.insert(0, result)
+    operator = ""
 
 
 # Initialize Tkinter
@@ -306,6 +323,8 @@ stored_buttons[8].config(command=lambda: click_button("1"))
 stored_buttons[9].config(command=lambda: click_button("2"))
 stored_buttons[10].config(command=lambda: click_button("3"))
 stored_buttons[11].config(command=lambda: click_button("*"))
+stored_buttons[12].config(command=get_result)
+stored_buttons[13].config(command=delete_all)
 stored_buttons[14].config(command=lambda: click_button("0"))
 stored_buttons[15].config(command=lambda: click_button("/"))
 
