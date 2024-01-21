@@ -69,8 +69,4 @@ class MenuApp:
             self.item_boxes.append(item_entry)
             item_entry.grid(row=i, column=1)
 
-
-if __name__ == "__main__":
-    root = Tk()
-    app = MenuApp(root, ["Item 1", "Item 2", "Item 3"], "Arial", 12)
-    root.mainloop()
+            return self.item_vars, self.item_boxes, self.item_text_vars
