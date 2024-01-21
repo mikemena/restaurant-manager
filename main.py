@@ -2,6 +2,13 @@ from tkinter import *
 from menu_items import create_menu_items
 from panel_labels import create_panel
 
+operator = ""
+
+
+def click_button(character):
+    global operator
+
+
 # Initialize Tkinter
 application = Tk()
 
