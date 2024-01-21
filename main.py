@@ -221,5 +221,53 @@ invoice_text = Text(
 )
 invoice_text.grid(row=0, column=0)
 
+# calculator
+calculator_display = Entry(calculator_panel, font=("Dosis", 16, "bold"), width=32, bd=1)
+calculator_display.grid(row=0, column=0, columnspan=4)
+
+calculator_buttons = [
+    "7",
+    "8",
+    "9",
+    "+",
+    "4",
+    "5",
+    "6",
+    "-",
+    "1",
+    "2",
+    "3",
+    "x",
+    "CE",
+    "Delete",
+    "0",
+    "/",
+]
+
+my_row = 1
+my_column = 0
+
+for button in calculator_buttons:
+    button = Button(
+        calculator_panel,
+        text=button.title(),
+        font=("Dosis", 16, "bold"),
+        fg="bisque4",
+        bg="antiquewhite3",
+        bd=1,
+        width=5,
+    )
+
+    button.grid(row=my_row, column=my_column)
+
+    if my_column == 3:
+        my_row += 1
+
+    my_column += 1
+
+    if my_column == 4:
+        my_column = 0
+
+
 # prevent window from closing
 application.mainloop()
