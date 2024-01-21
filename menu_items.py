@@ -1,5 +1,5 @@
+from typing import List, Tuple
 from tkinter import (
-    Tk,
     IntVar,
     Checkbutton,
     StringVar,
@@ -36,7 +36,7 @@ class MenuApp:
                 item_box.config(state=DISABLED)
                 self.item_text_vars[i].set("0")
 
-    def create_menu_items(self):
+    def create_menu_items(self) -> Tuple[List[IntVar], List[Entry], List[StringVar]]:
         panel = Frame(self.root)
         panel.pack()
 
@@ -69,4 +69,4 @@ class MenuApp:
             self.item_boxes.append(item_entry)
             item_entry.grid(row=i, column=1)
 
-            return self.item_vars, self.item_boxes, self.item_text_vars
+        return self.item_vars, self.item_boxes, self.item_text_vars
