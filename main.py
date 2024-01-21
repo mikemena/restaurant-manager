@@ -1,4 +1,18 @@
-from tkinter import *
+from tkinter import (
+    Tk,
+    StringVar,
+    Label,
+    Frame,
+    Button,
+    Text,
+    Entry,
+    TOP,
+    LEFT,
+    RIGHT,
+    BOTTOM,
+    FLAT,
+    END,
+)
 from menu_items import create_menu_items
 from panel_labels import create_panel
 
@@ -7,6 +21,8 @@ operator = ""
 
 def click_button(character):
     global operator
+    operator = operator + character
+    calculator_display.insert(END, operator)
 
 
 # Initialize Tkinter
