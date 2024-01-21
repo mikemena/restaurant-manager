@@ -13,7 +13,7 @@ from tkinter import (
     FLAT,
     END,
 )
-from menu_items import create_menu_items
+from menu_items import MenuApp
 from panel_labels import create_panel
 
 operator = ""
@@ -111,13 +111,13 @@ drink_list = ["Lemonade", "Soda", "Juice", "White Wine", "Red Wine", "Beer"]
 dessert_list = ["Ice Cream", "Fruit", "Brownies", "Pudding", "Cheesecake", "Cookie"]
 
 # Example usage
-food_variables, food_box, food_text = create_menu_items(
+food_variables, food_box, food_text = MenuApp.create_menu_items(
     food_panel, food_list, "Dosis", 18
 )
-drink_variables, drink_box, drink_text = create_menu_items(
+drink_variables, drink_box, drink_text = MenuApp.create_menu_items(
     drink_panel, drink_list, "Dosis", 18
 )
-dessert_variables, dessert_box, dessert_text = create_menu_items(
+dessert_variables, dessert_box, dessert_text = MenuApp.create_menu_items(
     dessert_panel, dessert_list, "Dosis", 18
 )
 
