@@ -30,7 +30,7 @@ class MenuApp:
         for i, item_box in enumerate(self.item_boxes):
             if self.item_vars[i].get() == 1:
                 item_box.config(state=NORMAL)
-                if item_box[1].get() == "0":
+                if self.item_text_vars[i].get() == "0":
                     item_box.delete(0, END)
                 item_box.focus()
             else:
