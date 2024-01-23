@@ -41,6 +41,8 @@ def get_result():
     calculator_display.insert(0, result)
     operator = ""
 
+def total_calculation():
+
 
 # Initialize Tkinter
 application = Tk()
@@ -238,6 +240,7 @@ total_text.grid(row=2, column=3)
 
 # buttons
 buttons = ["total", "invoice", "save", "reset"]
+created_buttons = []
 column = 0
 for button in buttons:
     button = Button(
@@ -248,9 +251,13 @@ for button in buttons:
         bg="antiquewhite4",
     )
 
+    created_buttons.append(button)
+
     button.grid(row=0, column=column)
 
     column += 1
+
+created_buttons[0].config(command=total_calculation)
 
 # invoice section
 invoice_text = Text(
