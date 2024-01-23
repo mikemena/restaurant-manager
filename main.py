@@ -17,6 +17,9 @@ from menu_items import MenuApp
 from panel_labels import create_panel
 
 operator = ""
+food_price = [1.32, 1.65, 2.31, 3.22, 1.22, 1.99]
+drink_price = [0.25, 0.99, 1.21, 1.54, 1.08, 1.10]
+dessert_price = [1.54, 1.68, 1.32, 1.97, 2.55, 2.14]
 
 # calculator buttons
 
@@ -41,7 +44,12 @@ def get_result():
     calculator_display.insert(0, result)
     operator = ""
 
+
 def total_calculation():
+    food_subtotal = 0
+    p = 0
+    for unit in food_text:
+        food_subtotal = food_subtotal + unit.get() * food_price[p]
 
 
 # Initialize Tkinter
