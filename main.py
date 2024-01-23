@@ -48,8 +48,10 @@ def get_result():
 def total_calculation():
     food_subtotal = 0
     p = 0
-    for unit in food_text:
-        food_subtotal = food_subtotal + unit.get() * food_price[p]
+    for unit in food_list:
+        food_subtotal = food_subtotal + float(unit.get()) * food_price[p]
+        p += 1
+    print(food_subtotal)
 
 
 # Initialize Tkinter
@@ -124,9 +126,6 @@ dessert_list = ["Ice Cream", "Fruit", "Brownies", "Pudding", "Cheesecake", "Cook
 food_menu = MenuApp(food_panel, food_list, "Dosis", 18)
 drink_menu = MenuApp(drink_panel, drink_list, "Dosis", 18)
 dessert_menu = MenuApp(dessert_panel, dessert_list, "Dosis", 18)
-food_variables, food_box, food_text = food_menu.create_menu_items()
-drink_variables, drink_box, drink_text = drink_menu.create_menu_items()
-dessert_variables, dessert_box, dessert_text = dessert_menu.create_menu_items()
 
 
 # variables
