@@ -46,12 +46,27 @@ def get_result():
 
 
 def total_calculation():
-    food_subtotal = 0
-    p = 0
-    for unit in food_cost_var:
-        food_subtotal = food_subtotal + (float(unit.get()) * food_price[p])
-        p += 1
-    print(food_subtotal)
+    def calculate_subtotal(menu, prices):
+        subtotal = 0
+        for i, item_var in enumerate(menu.item_text_vars):
+            try:
+                quantity = int(item_var.get())
+                subtotal += quantity * prices[i]
+            except ValueError:
+                pass  # Ignore if the quantity is not a number
+        return subtotal
+
+    food_subtotal = calculate_subtotal(food_menu, food_price)
+    drink_subtotal = calculate_subtotal(drink_menu, drink_price)
+    dessert_subtotal = calculate_subtotal(dessert_menu, dessert_price)
+
+    total = food_subtotal + drink_subtotal + dessert_subtotal
+    total_var.set(f"{total:.2f}")  # Update the total in the UI
+
+    # Optionally, you can update the subtotals in the UI as well
+    food_cost_var.set(f"{food_subtotal:.2f}")
+    drink_cost_var.set(f"{drink_subtotal:.2f}")
+    dessert_cost_var.set(f"{dessert_subtotal:.2f}")
 
 
 # Initialize Tkinter
