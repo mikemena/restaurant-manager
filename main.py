@@ -46,8 +46,11 @@ def get_result():
 
 
 def total_calculation():
+    tax_rate = 0.075
+
     def calculate_subtotal(menu, prices):
         subtotal = 0
+
         for i, item_var in enumerate(menu.item_text_vars):
             try:
                 quantity = int(item_var.get())
@@ -60,8 +63,12 @@ def total_calculation():
     drink_subtotal = calculate_subtotal(drink_menu, drink_price)
     dessert_subtotal = calculate_subtotal(dessert_menu, dessert_price)
 
-    total = food_subtotal + drink_subtotal + dessert_subtotal
-    total_var.set(f"{total:.2f}")  # Update the total in the UI
+    subtotal = food_subtotal + drink_subtotal + dessert_subtotal
+    taxes = subtotal * tax_rate
+    subtotal_var.set(f"{subtotal:.2f}")  # Update the total in the UI
+    taxes_var.set(f"{taxes:.2f}")  # Update the taxes in the UI
+
+    # total_var.set(f"{total:.2f}")  # Update the total in the UI
 
     # Optionally, you can update the subtotals in the UI as well
     food_cost_var.set(f"{food_subtotal:.2f}")
@@ -233,7 +240,7 @@ taxes_label = Label(
 taxes_label.grid(row=1, column=2)
 taxes_text = Entry(
     cost_panel,
-    font=("Doris", 12, "bold"),
+    font=("Doris", 18, "bold"),
     bd=0,
     width=10,
     state="readonly",
@@ -252,7 +259,7 @@ total_label = Label(
 total_label.grid(row=2, column=2)
 total_text = Entry(
     cost_panel,
-    font=("Doris", 12, "bold"),
+    font=("Doris", 18, "bold"),
     bd=0,
     width=10,
     state="readonly",
