@@ -47,20 +47,11 @@ def get_result():
 
 def total_calculation():
     food_subtotal = 0
-    for p, entry_widget in enumerate(food_list):
-        try:
-            quantity = float(
-                entry_widget.get()
-            )  # Assuming each entry_widget is an Entry widget
-            price = food_price[p]
-            food_subtotal += quantity * price
-        except ValueError:
-            print(f"Invalid value for item at index {p}: {entry_widget.get()}")
-        except IndexError:
-            print(f"No price available for item at index {p}")
-
+    p = 0
+    for unit in food_cost_var:
+        food_subtotal = food_subtotal + (float(unit.get()) * food_price[p])
+        p += 1
     print(food_subtotal)
-    return food_subtotal
 
 
 # Initialize Tkinter
