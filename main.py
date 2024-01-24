@@ -15,6 +15,8 @@ from tkinter import (
 )
 from menu_items import MenuApp
 from panel_labels import create_panel
+import random
+import datetime
 
 operator = ""
 food_price = [1.32, 1.65, 2.31, 3.22, 1.22, 1.99]
@@ -75,6 +77,31 @@ def total_calculation():
     food_cost_var.set(f"{food_subtotal:.2f}")
     drink_cost_var.set(f"{drink_subtotal:.2f}")
     dessert_cost_var.set(f"{dessert_subtotal:.2f}")
+
+
+def create_invoice(menu_app, prices):
+    selected_items_info = []
+    for i, item_var in enumerate(menu_app.item_vars):
+        if item_var.get() == 1:
+            item_name = menu_app.item_list[i]
+            try:
+                quantity = int(menu_app.item_text_vars[i].get())
+                price = prices[i]
+                total_price = quantity * price
+                selected_items_info.append((item_name, quantity, price, total_price))
+            except ValueError:
+                pass  # ignore if the quantity is not a number or is empty
+    return selected_items_info
+
+
+# invoice_text.delete(1.0, END)
+# invoice_number = f"N# - {random.randint(1000, 9999)}"
+# my_date = datetime.datetime.now()
+# invoice_date = f"{my_date.month}/{my_date.day}/{my_date.year} - {my_date.hour}:{my_date.minute}"
+# invoice_text.insert(END, f"Information: {invoice_number}\t\t{invoice_date}\n")
+# invoice_text.insert(END, f"*" * 45 + "\n")
+# invoice_text.insert(END, f"Items\t\tQuantity\tItems Cost\n")
+# invoice_text.insert(END, f"*" * 45 + "\n")
 
 
 # Initialize Tkinter
@@ -149,6 +176,12 @@ dessert_list = ["Ice Cream", "Fruit", "Brownies", "Pudding", "Cheesecake", "Cook
 food_menu = MenuApp(food_panel, food_list, "Dosis", 18)
 drink_menu = MenuApp(drink_panel, drink_list, "Dosis", 18)
 dessert_menu = MenuApp(dessert_panel, dessert_list, "Dosis", 18)
+
+food_selected_info = create_invoice(food_menu, food_price)
+drink_selected_info = create_invoice(drink_menu, drink_price)
+dessert_selected_info = create_invoice(dessert_menu, dessert_price)
+
+print(food_selected_info)
 
 
 # variables
@@ -288,6 +321,8 @@ for button in buttons:
     column += 1
 
 created_buttons[0].config(command=total_calculation)
+created_buttons[1].config(command=create_invoice)
+
 
 # invoice section
 invoice_text = Text(
