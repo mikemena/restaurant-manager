@@ -65,12 +65,13 @@ def total_calculation():
 
     subtotal = food_subtotal + drink_subtotal + dessert_subtotal
     taxes = subtotal * tax_rate
+    total = subtotal + taxes
+
     subtotal_var.set(f"{subtotal:.2f}")  # Update the total in the UI
     taxes_var.set(f"{taxes:.2f}")  # Update the taxes in the UI
+    total_var.set(f"{total:.2f}")  # Update the total in the UI
 
-    # total_var.set(f"{total:.2f}")  # Update the total in the UI
-
-    # Optionally, you can update the subtotals in the UI as well
+    # Update the subtotals in the UI
     food_cost_var.set(f"{food_subtotal:.2f}")
     drink_cost_var.set(f"{drink_subtotal:.2f}")
     dessert_cost_var.set(f"{dessert_subtotal:.2f}")
