@@ -126,13 +126,13 @@ def generate_invoice():
     # Calculate and display total
     total_calculation()
     invoice_text.insert(END, f"*" * 45 + "\n")
-    invoice_text.insert(END, f"Food Subtotal: {food_cost_var.get()}\n")
-    invoice_text.insert(END, f"Drink Subtotal: {drink_cost_var.get()}\n")
-    invoice_text.insert(END, f"Dessert Subtotal: {dessert_cost_var.get()}\n")
+    invoice_text.insert(END, f"Food Subtotal: \t\t{food_cost_var.get()}\n")
+    invoice_text.insert(END, f"Drink Subtotal: \t\t{drink_cost_var.get()}\n")
+    invoice_text.insert(END, f"Dessert Subtotal: \t\t{dessert_cost_var.get()}\n")
     invoice_text.insert(END, f"*" * 45 + "\n")
-    invoice_text.insert(END, f"\nSubtotal: {subtotal_var.get()}\n")
-    invoice_text.insert(END, f"Taxes: {taxes_var.get()}\n")
-    invoice_text.insert(END, f"Total: {total_var.get()}\n")
+    invoice_text.insert(END, f"\nSubtotal: \t\t{subtotal_var.get()}\n")
+    invoice_text.insert(END, f"Taxes: \t\t{taxes_var.get()}\n")
+    invoice_text.insert(END, f"Total: \t\t{total_var.get()}\n")
 
 
 # Initialize Tkinter
