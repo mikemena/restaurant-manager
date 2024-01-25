@@ -150,14 +150,31 @@ def save_invoice():
 def reset_all():
     invoice_text.delete(1.0, END)
 
+    # Reset cost variables
     food_cost_var.set("0")
-    for text in drink_cost_text:
-        text.set("0")
-    for text in dessert_cost_text:
-        text.set("0")
+    drink_cost_var.set("0")
+    dessert_cost_var.set("0")
+    subtotal_var.set("0")
+    taxes_var.set("0")
+    total_var.set("0")
 
-    for box in food_box:
-        box.config(static=DISABLED)
+    # Function to reset menu items
+    def reset_menu_items(menu_app):
+        for var in menu_app.item_vars:
+            var.set(0)  # Uncheck the checkbox
+        for text_var in menu_app.item_text_vars:
+            text_var.set("0")  # Set quantity to 0
+
+    # Reset menu items
+    reset_menu_items(food_menu)
+    reset_menu_items(drink_menu)
+    reset_menu_items(dessert_menu)
+
+    # Additional resets if needed
+    # ...
+
+
+# Rest of your code...
 
 
 # Initialize Tkinter
