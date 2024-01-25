@@ -19,9 +19,9 @@ import random
 import datetime
 
 operator = ""
-food_price = [1.32, 1.65, 2.31, 3.22, 1.22, 1.99]
-drink_price = [0.25, 0.99, 1.21, 1.54, 1.08, 1.10]
-dessert_price = [1.54, 1.68, 1.32, 1.97, 2.55, 2.14]
+food_price = [6.50, 8.65, 6.31, 8.22, 9.22, 8.99]
+drink_price = [2.25, 3.99, 3.21, 2.54, 2.08, 2.10]
+dessert_price = [4.54, 3.68, 4.32, 6.97, 7.55, 5.14]
 
 # calculator buttons
 
@@ -125,6 +125,11 @@ def generate_invoice():
 
     # Calculate and display total
     total_calculation()
+    invoice_text.insert(END, f"*" * 45 + "\n")
+    invoice_text.insert(END, f"Food Subtotal: {food_cost_var.get()}\n")
+    invoice_text.insert(END, f"Drink Subtotal: {drink_cost_var.get()}\n")
+    invoice_text.insert(END, f"Dessert Subtotal: {dessert_cost_var.get()}\n")
+    invoice_text.insert(END, f"*" * 45 + "\n")
     invoice_text.insert(END, f"\nSubtotal: {subtotal_var.get()}\n")
     invoice_text.insert(END, f"Taxes: {taxes_var.get()}\n")
     invoice_text.insert(END, f"Total: {total_var.get()}\n")
