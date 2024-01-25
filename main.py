@@ -12,11 +12,14 @@ from tkinter import (
     BOTTOM,
     FLAT,
     END,
+    filedialog,
+    messagebox,
 )
 from menu_items import MenuApp
 from panel_labels import create_panel
 import random
 import datetime
+
 
 operator = ""
 food_price = [6.50, 8.65, 6.31, 8.22, 9.22, 8.99]
@@ -133,6 +136,14 @@ def generate_invoice():
     invoice_text.insert(END, f"\nSubtotal: \t\t{subtotal_var.get()}\n")
     invoice_text.insert(END, f"Taxes: \t\t{taxes_var.get()}\n")
     invoice_text.insert(END, f"Total: \t\t{total_var.get()}\n")
+
+
+def save_invoice():
+    invoice_info = invoice_text.get(1.0, END)
+    my_file = filedialog.asksaveasfile(mode="w", defaultextension=".txt")
+    my_file.write(invoice_info)
+    my_file.close()
+    messagebox.showinfo("Notification", "Your invoice has been saved.")
 
 
 # Initialize Tkinter
@@ -353,6 +364,8 @@ for button in buttons:
 
 created_buttons[0].config(command=total_calculation)
 created_buttons[1].config(command=generate_invoice)
+created_buttons[2].config(command=save_invoice)
+# created_buttons[3].config(command=reset_all)
 
 
 # invoice section
