@@ -12,6 +12,7 @@ from tkinter import (
     BOTTOM,
     FLAT,
     END,
+    DISABLED,
     filedialog,
     messagebox,
 )
@@ -146,6 +147,19 @@ def save_invoice():
     messagebox.showinfo("Notification", "Your invoice has been saved.")
 
 
+def reset_all():
+    invoice_text.delete(1.0, END)
+
+    food_cost_var.set("0")
+    for text in drink_cost_text:
+        text.set("0")
+    for text in dessert_cost_text:
+        text.set("0")
+
+    for box in food_box:
+        box.config(static=DISABLED)
+
+
 # Initialize Tkinter
 application = Tk()
 
@@ -185,8 +199,6 @@ left_panel.pack(side=LEFT)
 cost_panel = Frame(left_panel, bd=1, relief=FLAT)
 cost_panel.pack(side=BOTTOM)
 
-# panel_types = ["drink", "food", "dessert"]
-# create_panel_label(left_panel, panel_types,"Dosis", 18)
 
 # create menu item panels
 food_panel = create_panel(left_panel, "Food", "Dosis", 18)
@@ -365,7 +377,7 @@ for button in buttons:
 created_buttons[0].config(command=total_calculation)
 created_buttons[1].config(command=generate_invoice)
 created_buttons[2].config(command=save_invoice)
-# created_buttons[3].config(command=reset_all)
+created_buttons[3].config(command=reset_all)
 
 
 # invoice section
