@@ -94,14 +94,40 @@ def create_invoice(menu_app, prices):
     return selected_items_info
 
 
-# invoice_text.delete(1.0, END)
-# invoice_number = f"N# - {random.randint(1000, 9999)}"
-# my_date = datetime.datetime.now()
-# invoice_date = f"{my_date.month}/{my_date.day}/{my_date.year} - {my_date.hour}:{my_date.minute}"
-# invoice_text.insert(END, f"Information: {invoice_number}\t\t{invoice_date}\n")
-# invoice_text.insert(END, f"*" * 45 + "\n")
-# invoice_text.insert(END, f"Items\t\tQuantity\tItems Cost\n")
-# invoice_text.insert(END, f"*" * 45 + "\n")
+def generate_invoice():
+    invoice_text.delete(1.0, END)
+
+    # Header for invoice
+    invoice_number = f"N# - {random.randint(1000, 9999)}"
+    my_date = datetime.datetime.now()
+    invoice_date = f"{my_date.month}/{my_date.day}/{my_date.year} - {my_date.hour}:{my_date.minute}"
+    invoice_text.insert(END, f"Information: {invoice_number}\t\t{invoice_date}\n")
+    invoice_text.insert(END, f"*" * 45 + "\n")
+    invoice_text.insert(END, f"Items\t\tQuantity\tUnit Price\tTotal Cost\n")
+    invoice_text.insert(END, f"*" * 45 + "\n")
+
+    # Adding items to the invoice
+    def add_items_to_invoice(items_info):
+        for item_name, quantity, price, total_price in items_info:
+            invoice_text.insert(
+                END, f"{item_name}\t\t{quantity}\t\t{price}\t\t{total_price}\n"
+            )
+
+    # Get selected items information
+    food_selected_info = create_invoice(food_menu, food_price)
+    drink_selected_info = create_invoice(drink_menu, drink_price)
+    dessert_selected_info = create_invoice(dessert_menu, dessert_price)
+
+    # Add items to invoice
+    add_items_to_invoice(food_selected_info)
+    add_items_to_invoice(drink_selected_info)
+    add_items_to_invoice(dessert_selected_info)
+
+    # Calculate and display total
+    total_calculation()
+    invoice_text.insert(END, f"\nSubtotal: {subtotal_var.get()}\n")
+    invoice_text.insert(END, f"Taxes: {taxes_var.get()}\n")
+    invoice_text.insert(END, f"Total: {total_var.get()}\n")
 
 
 # Initialize Tkinter
@@ -321,7 +347,7 @@ for button in buttons:
     column += 1
 
 created_buttons[0].config(command=total_calculation)
-created_buttons[1].config(command=create_invoice)
+created_buttons[1].config(command=generate_invoice)
 
 
 # invoice section
