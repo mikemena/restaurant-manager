@@ -110,7 +110,7 @@ def generate_invoice():
     def add_items_to_invoice(items_info):
         for item_name, quantity, price, total_price in items_info:
             invoice_text.insert(
-                END, f"{item_name}\t\t{quantity}\t\t{price}\t\t{total_price}\n"
+                END, f"{item_name}\t\t{quantity}\t{price}\t{total_price}\n"
             )
 
     # Get selected items information
